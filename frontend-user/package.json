@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "cases:check": "node scripts/check-cases.mjs",
+    "cases:export": "node scripts/export-cases.mjs",
+    "cases:update-manifest": "node scripts/check-cases.mjs --write",
+    "prebuild": "npm run cases:check",
     "build": "vite build",
     "preview": "vite preview"
   },

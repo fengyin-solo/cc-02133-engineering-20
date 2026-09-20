@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "source": "src/data/cases.json",
+  "caseCount": 6,
+  "checksum": "9b9afcede34e7661b1d0dd2bddb0c5ad93ee4a5ab75877fe65945b4372a6a843",
+  "cases": [
+    {
+      "key": "某大型电商平台",
+      "title": "某大型电商平台",
+      "industry": "电商物流",
+      "tag": "ecommerce",
+      "results": 3,
+      "hash": "6c4922c028f6066242f466d2ab06432f04610435a499cd49a9a237e7a90782f4"
+    },
+    {
+      "key": "某知名快递企业",
+      "title": "某知名快递企业",
+      "industry": "快递物流",
+      "tag": "express",
+      "results": 3,
+      "hash": "8053a2a3a45f34e639429310d26f59bde52395c3a849306dff1c8168f85314e6"
+    },
+    {
+      "key": "某连锁零售集团",
+      "title": "某连锁零售集团",
+      "industry": "零售配送",
+      "tag": "retail",
+      "results": 3,
+      "hash": "e2297ae6384f0464c577a3d2d9f914f0f56c82c82328d13a6f9552b42961c550"
+    },
+    {
+      "key": "某汽车零部件制造商",
+      "title": "某汽车零部件制造商",
+      "industry": "制造业",
+      "tag": "manufacturing",
+      "results": 3,
+      "hash": "a67885604254c908761d4f34c2f04d9714cee65120ac4c97fdbb5999c6026fbf"
+    },
+    {
+      "key": "某生鲜电商平台",
+      "title": "某生鲜电商平台",
+      "industry": "电商物流",
+      "tag": "ecommerce",
+      "results": 3,
+      "hash": "b5c14aa52ac48091c00d2efdf208dc05635967fec16b6769146683a67b93e253"
+    },
+    {
+      "key": "某医药流通企业",
+      "title": "某医药流通企业",
+      "industry": "制造业",
+      "tag": "manufacturing",
+      "results": 3,
+      "hash": "4d6c3105eb7fbbe265a2b0e37b191baac1f494c52c6d9a7cc312f116550778cd"
+    }
+  ]
+}
