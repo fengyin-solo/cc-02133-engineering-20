@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:baseline": "node scripts/check-case-baseline.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "vue": "^3.4.21",

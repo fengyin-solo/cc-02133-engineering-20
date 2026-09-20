@@ -99,3 +99,55 @@ npm run build
 - ✅ SCSS 样式预处理
 - ✅ 响应式布局适配
 - ✅ Docker 容器化部署
+
+## 7. 成功案例构建基线（导入/导出与构建检查）
+
+案例展示页（`/cases`）的案例数据以「构建基线」为唯一来源，支持维护者从文件载入，避免发布时配置漂移。
+
+### 基线文件格式
+
+```json
+{
+  "formatVersion": 1,
+  "exportedAt": "2026-09-20T00:00:00.000Z",
+  "cases": [
+    {
+      "title": "案例名称",
+      "industry": "所属行业",
+      "tag": "ecommerce",
+      "description": "案例描述",
+      "challenge": "面临挑战",
+      "solution": "解决方案",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "results": [{ "value": "40%", "label": "效率提升" }]
+    }
+  ]
+}
+```
+
+参考文件：`frontend-user/baseline/case-baseline.sample.json`（导出当前基线可得到同样格式）。`tag` 取值：`ecommerce` / `express` / `retail` / `manufacturing`。
+
+### 维护操作
+
+在案例展示页筛选栏点击「构建基线」：
+
+- **导出基线**：下载当前案例为规范化 JSON 文件；
+- **从文件导入**：选择基线文件，自动执行规范化与检查；
+- **执行构建检查**：生成规范化清单，标出缺失字段、重复案例与缺失的内置案例；
+- **恢复内置基线**：放弃导入内容，回到随版本发布的内置案例。
+
+### 安全保证（不覆盖现有案例）
+
+以下情况导入一律被拒绝，页面保持原有案例：文件为空、JSON 非法、`formatVersion` 不兼容、`cases` 缺失或为空、任一字段缺失/为空白、实施效果缺少 `value`/`label`、案例标题重复。未知行业标签和缺少内置案例只记为警告（疑似配置漂移），不阻断导入。
+
+导入成功的基线保存在浏览器本地，首次进入、路由前进/后退、窄屏展示后内容保持稳定；首页案例卡与客户评价区域不受影响。
+
+### 发布前检查
+
+```bash
+cd frontend-user
+npm run check:baseline          # 检查内置基线与随仓样例
+npm run check:baseline -- <文件> # 检查指定基线文件
+npm test                        # 解析/校验/存储单元测试
+npm run build                    # 构建开始时自动执行基线检查，检查失败则中断发布
+```
